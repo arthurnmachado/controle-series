@@ -10,11 +10,13 @@
     <ul class="list-group">
         @foreach ($series as $serie)
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            {{ $serie->nome }}
+            <a href="{{ route('seasons.index', $serie->id) }}">
+                {{ $serie->nome }}
+            </a>
         
             <span class="d-flex">
                 <a href="{{ route('series.edit', $serie->id) }}" class="btn btn-primary btn-sm">
-                    E
+                    <img src="{{ asset('media/icons/edit-icon.svg')}}" alt="Trash Icon" style="width: 20px">
                 </a>
 
                 <form action="{{ route('series.destroy', $serie->id)}}" method="POST" class="ms-2">
