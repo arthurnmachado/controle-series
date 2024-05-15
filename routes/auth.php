@@ -39,6 +39,7 @@ Route::middleware('guest')->group(function () {
 
 Route::resource('/series', SeriesController::class)
     ->except(['show']);
+    
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
